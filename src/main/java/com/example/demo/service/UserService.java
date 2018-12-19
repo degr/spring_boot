@@ -5,6 +5,8 @@ import com.example.demo.dto.UserDto;
 import com.example.demo.entity.User;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -27,5 +29,9 @@ public class UserService {
     public UserDto findById(Integer id) {
         Optional<User> user = userDao.findById(id);
         return user.map(UserDto::new).orElse(null);
+    }
+
+    public List<User> findAll() {
+         return userDao.findAll();
     }
 }
